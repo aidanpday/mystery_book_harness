@@ -52,7 +52,8 @@ Each iteration is a fresh repository with the folders:
 ### 1_plan/
 
 This folder holds universal documentation:
-- Project details
+- Project overview
+- Rubric
 - Change log instructions
 - Evaluation instructions
 
@@ -65,6 +66,10 @@ This file is intended to clarify:
 - Target audience
 - Target outcomes for the reader
 - Parameters for the project (i.e. wordcount, which AI model to use, etc.)
+
+### Rubric
+
+This is the marking guide to check the final manuscript against. Each standard must have specific requirements that avoid ambiguity, so that eval is consistent between prototypes.
 
 ### Change log instructions
 
@@ -93,13 +98,15 @@ Review steps are ones that look at (and change) the existing files in `4_data/` 
 - to identify pieces that don't serve the overall project goals, and refactor them
 - to identify issues early, and course correct
 
-### Mandatory steps
+### Mandatory elements
 
-Each step should be run by a fresh agent context. Each step runs the instructions for the step, against its template, to generate a result. After this, every step must perform, without exception:
-- quality checks (in `2_steps/QUALITY_CHECK.md`)
-- change log instructions (in `1_plan/CHANGE_LOG.md`)
+Each step should be run by a fresh agent context. Each step runs the instructions for the step, against its template, to generate a result. It must create a plan, which is not stored permanently. Plans are automatically approved.
 
-The last step for every iteration is strictly required to run the evaluation steps `1_plan/EVALUATION.md`.
+After this, every step must perform, without exception:
+- quality checks (in `2_steps/quality_check.md`)
+- change log instructions (in `1_plan/03_change_log.md`)
+
+The last step for every iteration is strictly required to run the evaluation steps `1_plan/04_evaluation.md`.
 
 ### Possible step ideas
 
@@ -114,7 +121,7 @@ Review steps:
 
 ### 3_change_log/
 
-This folder stores entries generated from `1_plan/change_log.md`. Each entry has a sequential number in its prefix. For example, `3_change_log/005_step_5.md` labels the 5th entry, written by the agent right after it finishes step 5.
+This folder stores entries generated from `1_plan/03_change_log.md`. Each entry has a sequential number in its prefix. For example, `3_change_log/005_step_5.md` labels the 5th entry, written by the agent right after it finishes step 5.
 
 ### 4_data/
 
@@ -142,7 +149,7 @@ This folder has four files generated in a sequence of steps.
 
 `02_review.md` is generated second. The goal is to judge whether the prototype has succeeded.
 
-It is done by evaluating `5_evaluation/1_manuscript.txt` against the design goals set at the start (`1_plan/01_overall.md` and `1_plan/02_rubric.md`). This evaluation should give an unbiased general score out of 100, for the overall quality. It should also rank each part of the project to determine which parts were good and bad (judged according to the rubric). List the main issues and the main successes in `02_review.md`.
+It is done by evaluating `5_evaluation/1_manuscript.txt` against the design goals set at the start (`1_plan/01_project.md` and `1_plan/02_rubric.md`). This evaluation should give an unbiased general score out of 100, for the overall quality. It should also rank each part of the project to determine which parts were good and bad (judged according to the rubric). List the main issues and the main successes in `02_review.md`.
 
 `03_learnings.md` is generated third. It reviews all entries in `03_change_log/` to aggregate its data. The goal is to understand where each specific problem began.
 
