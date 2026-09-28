@@ -80,7 +80,7 @@ The purpose of this check is to determine the structure of the mystery itself, a
 
 Score the manuscript using these questions:
   - 1
-    QUESTION: Are all clues that solve the mystery visible and intelligible to the reader, planted before the climax?
+    QUESTION: Are all clues that solve the mystery visible and intelligible to the reader, planted before the climax? In other words, does the syuzhet present the fabula fairly?
     TASK: Trace every clue cited in the solution to the mystery back to its first origin.
     SAMPLE_20: Every deduction is anchored to evidence that has been planted. The conclusion is non-obvious due to misdirection and a tangled web of contradictions, but it is possible to have solved in advance.
     SAMPLE_10: Every deduction is anchored to evidence that has been planted. The conclusion is obvious because all evidence pointed to the same conclusion and there were no viable alternatives.
@@ -92,7 +92,7 @@ Score the manuscript using these questions:
     SAMPLE_10: The culprit appears before the crime. The crime is possible within the rules of the narrative. The culprit does not have an active role in the story otherwise. Their motive is boring.
     SAMPLE_01: The culprit does not appear before the crime. They are not a substantial part of the story. The crime does not make sense within the rules of the narrative.
   - 3
-    QUESTION: Does the climax introduce a twist?
+    QUESTION: Has the syuzhet introduced twists which defy the reader's expectations?
     TASK: Record the default expectations that a reader would have after reading portions of the text: stopping just after the crime, stopping just before the reveal, and reading all the way through.
     SAMPLE_20: Reader expectations change dynamically. Their expectations are defied at least once, but in retrospect it makes sense.
     SAMPLE_10: The reader expectations changed from the crime to the reveal, but not after the climax.
