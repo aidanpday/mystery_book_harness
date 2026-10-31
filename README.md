@@ -1,160 +1,110 @@
 # NOVEL FOCUS
 
-We write novels using AI agentically. Our ultimate goal is to write a novel that has maximum quality to readers. Our north star, though, is to iterate quickly and to learn from each iteration. We run a breadth of experiments to prototype many possible options. Every prototype, we evaluate its results and its process.
+We write novels using AI agentically. The goal is NOT to draft a complete novel, nor is it to deliver a quality end product. Our north star is to iterate quickly and to learn from each attempt. Art is complex, so we will try many possibilities to slowly hone in on a good path.
+
+We run a breadth of experiments to prototype many possible options. Every prototype, a human evaluates the output. Overall quality is irrelevant because the purpose is to evaluate the direction & instructions, using the output as a proxy. Each experiment uses the same model to ensure apples-to-apples comparisons. 
+
+We follow the scientific process. Thus, we optimize for limited scope. Output must be fast for a human to review (i.e. concise) and they strictly must test a small unit of the decision-making process. A novel is complex web of interwoven ideas, and our goal is to reduce it to the smallest possible units.
+
+Thus, we prototype each step of the novel individually, on smallest parts. For example, if one step of the novel-writing process is to make character bibles, then we would prototype one character, over and over. Each step gets its own round of prototypes.
+
+Each iteration has 10 prototypes. Within an iteration, imagine an unknown field of all possible artistic choices and directions. We first choose 10 distinct possible artistic directions, then we generate a set of minimal instructions for each of them, then all 10 are run as prompts. Finally, a human reviews all 10 outputs, scoring them using a template.
+
+The next iteration uses the first 1-2 directions as a "midpoint" for the next 10 possible artistic choices. These new 10 directions must not copy the midpoint but must test possibilities similar to them. The goal is to find the best direction in the field via breadth-first search.
 
 ## WORKFLOW
 
-HARNESS: pass instructions to an iteration
-ITERATION: for each step,
-    - run step instructions
-    - run quality checks
-    - run change log instructions
-ITERATION: output final draft and generate other eval docs
-HARNESS: review eval docs to tweak instructions
+HARNESS: pass a step & a base set of instructions
+ITERATION:
+    - generate 50 possible directions
+    - sort based on viability. pick the best 10
+    - PER DIRECTION (concurrently):
+        - generate instructions based on the direction
+        - run the instructions to generate output
+HUMAN: review output and score the directions chosen. pick 1-2 to continue with
 
 ## HARNESS
 
-This repository is the project manager that manages iterations. Each iteration has distinct documentation (`1_plan/` and `2_steps/`) because the goal of each iteration is to evaluate a distinct set of instructions.
+This repository is the experimental harness that manages isolated step iterations. Rather than running an entire novel pipeline end-to-end, the harness tests **one novel-writing step at a time**, scoped down to its **smallest testable unit** (for example: one setting zone, one character profile, one clue chain, or one short scene).
 
-Each prototype should efficiently complete its steps, so that iteration is cost effective. Since we learn from every step, we prefer to iterate cheaply and frequently. Prototypes do not need much polish.
+Each iteration runs a batch of **10 concurrent prototypes** for that single unit. Because execution per prototype is at most one step of instructions with no intermediate artifacts, prototypes are fast to run and concise enough for a human to review side-by-side in minutes. Prototypes do not need end-product polish; their output serves strictly as a proxy to evaluate the underlying artistic direction and instructions.
 
-After a prototype is complete, its report is stored in the harness as an entry. Each entry is a folder numbered sequentially containing the eval steps. A human will review the reports to determine which feedback is actionable. Then, the harness updates `2_steps/` and begins another iteration.
+### Scientific Controls & Immutability
 
-### Which folders to modify
+Fair, apples-to-apples comparisons require holding everything constant except the artistic direction and the minimal instructions derived from it:
 
-The goal of immutability is for our experiments to be fair, allowing us to measure relative success. The `1_plan/` folder must remain constant between iterations. The instructions to generate entries in `03_change_log/` and `05_evaluation` must be exactly the same. By contrast, `2_steps/` and the seed info in `4_data/` (goals, style guide) should take different general approaches. This is to compare the instructions we try.
+- **Immutable across a step's iterations (Controls):**
+  - `1_harness/` — project parameters, baseline story goals, style guardrails, iteration workflow, and the human evaluation template.
+  - **The AI model** — every prototype in an experiment uses the exact same model.
+  - **The step baseline** — the target step's `base_instructions.md` (defining the unit scope and base deliverable shape) and any fixed upstream `context.md` fixture.
+- **Variable within an iteration (Independent Variable):**
+  - The 10 chosen artistic directions and their generated minimal instruction sets (`instructions/01.md` through `instructions/10.md`).
+- **Immutable once recorded (Experimental Record):**
+  - Once an iteration folder (`iterations/01/`, `iterations/02/`, etc.) completes and a human records scores in `evaluation.md`, that iteration directory is frozen. The next iteration reads the 1–2 chosen midpoints from the completed `evaluation.md` and writes to a fresh `iterations/<NN>/` folder.
 
-IMMUTABILITY (HARNESS): The harness should create `1_plan/` which should not change at all. The harness should also create steps for evaluation steps (manuscript format, manuscript review, change log learnings, suggestions) which should not change at all. The harness may change `2_steps/` and seed data.
+### Choosing Artistic Directions & Minimal Instructions
 
-IMMUTABILITY (ITERATION): To any iteration, `1_plan/`, `2_steps/`, and the goals file in `4_data/` become immutable. Entries in `3_change_log/` can be added but may not be modified once they have been created. Files in `4_data/` may be modified (including the style guide but NOT the goals file). `5_evaluation/` may only be added at the end by the universal eval steps.
+The harness explores a vast field of creative possibilities via breadth-first search. Within each iteration, 50 candidate artistic directions are brainstormed, sorted by viability for the target unit and project constraints, and narrowed to the best 10 distinct options.
 
-### How to choose different instructions
+Every direction must be rigorously defensible, drawing on fiction-writing frameworks and craft advice from respected authors. Take inspiration from successful works of art, highlighting specific structural or stylistic elements to encourage (and pitfalls to avoid).
 
-The harness is a means to test and compare the results from varied instructions. Each set of instructions is a data point in a vast field. Try breadth first search first, to survey the possible options. Each set of instructions must still be rigorously defensible, using fiction-writing advice and frameworks from respected authors.
+How directions are generated depends on whether a prior iteration has established an "overall direction" (the 1–2 human-selected midpoints):
 
-`4_data/01_goals.md` can use different plot configurations and general ideas. Take inspiration here from successful works from the same industry, highlighting which elements to encourage.
+- **If no "overall direction" (midpoint) is given (Iteration 01):** Survey the widest possible space of viable artistic choices. The 50 candidates—and the top 10 selected—should test fundamentally different craft philosophies, focal priorities, and structural approaches so the initial batch maps the broader landscape.
+- **If an "overall direction" (1–2 midpoints) is given (Iteration 02+):** Each new direction must include specific modifications that test possibilities around the midpoint(s) without copying them verbatim. Treat the 1–2 midpoints as a center of gravity—vary emphasis, framing, tension mechanics, or level of abstraction to triangulate on the strongest formulation in that neighborhood.
 
-The main agency is to choose different steps to use, and to update the requirements in each step. Stories have many possible concepts to them. Try formulations that include or exclude certain types of step, or that change the order (to shift emphasis).
+For each of the 10 selected directions, an isolated agent generates a set of **minimal instructions** anchored to the step's `base_instructions.md` and immediately executes those instructions once to produce a concise output. Instructions should stay lean and high-leverage rather than piling on tangential rules.
 
-After several prototypes, the focus shifts to refine the instructions within existing steps. However, every iteration should changes the step contents at least a little.
+## REPOSITORY STRUCTURE
 
-## EACH ITERATION
+```text
+.
+├── 1_harness/                  # Universal baseline rules, story constants, & templates
+│   ├── 01_project.md
+│   ├── 02_goals.md
+│   ├── 03_style.md
+│   ├── 04_workflow.md
+│   └── 05_evaluation_template.md
+├── 2_steps/                    # Isolated novel-writing steps & their iteration batches
+│   ├── 00_step_catalog.md
+│   └── <NN_step_name>/
+│       ├── base_instructions.md
+│       ├── context.md          # Optional frozen upstream fixture for downstream steps
+│       └── iterations/
+│           └── <NN>/
+│               ├── directions.md
+│               ├── instructions/
+│               │   └── 01.md ... 10.md
+│               ├── outputs/
+│               │   └── 01.md ... 10.md
+│               └── evaluation.md
+└── 3_history/                  # Learnings from pre-harness experiments
+    └── early_learnings.md
+```
 
-Prototypes should be fast and cheap to run. The goal is not to polish each individual run. Rather than tweaking an imperfect approach so perfectly that it can produce good results, we should fail quickly in varied ways to triangulate on an approach that produces generally good output. We can polish the model once we are confident that the instructions are in the right direction.
+### 1_harness/
 
-Each iteration is a fresh repository with the folders:
-- `1_plan/`
-- `2_steps/`
-- `3_change_log/`
-- `4_data/`
-- `5_evaluation/`
+Holds the fixed project baseline and universal execution rules shared across experiments:
 
-### 1_plan/
-
-This folder holds universal documentation:
-- Project overview
-- Rubric
-- Change log instructions
-- Evaluation instructions
-
-### Project details
-
-Main goals for the project to adhere to. This is set at a project level and does NOT change between iterations. Details that may possibly change between iterations belong in `4_data/01_goals.md` instead.
-
-This file is intended to clarify:
-- Genre
-- Target audience
-- Target outcomes for the reader
-- Parameters for the project (i.e. wordcount, which AI model to use, etc.)
-
-### Rubric
-
-This is the marking guide to check the final manuscript against. Each standard must have specific requirements that avoid ambiguity, so that eval is consistent between prototypes.
-
-### Change log instructions
-
-Must be run after every step of instructions, no exceptions. Generates a sequential file in `3_change_log/` that form a record. These entries should be brief yet complete accounts of problems encounters and decisions made.
-
-### Evaluation instructions
-
-These are to be run once the prototype is completely drafted. This document details the steps to generate the documents in `5_evaluation/`, one at a time.
+- **`01_project.md`:** High-level project parameters—genre (whodunnit mystery), target audience profiles, bounded "bottle" setting scope, and AI experimentation rules (fixed model, single-unit conciseness, single-step execution).
+- **`02_goals.md`:** Baseline story truth (fabula vs. syuzhet principles, core plot outline, mystery fair-play constraints, and positive/negative artistic inspirations).
+- **`03_style.md`:** Tonal calibration scale, universal content bans (no money, no legal statutes), and prose rules for drafting steps.
+- **`04_workflow.md`:** Operational guide for running an iteration on a step: generating 50 directions, sorting and picking 10, running 10 concurrent prototypes, and preparing the human scorecard.
+- **`05_evaluation_template.md`:** Consolidated human review template copied into each iteration as `evaluation.md`.
 
 ### 2_steps/
 
-The reason we use steps is that human authors don't just immaculately conceive of a book. They start with an idea that grows as they write it. Human writers think of pieces out of order, as they find inspiration. We use an AI process. We must generate a book procedurally, with one step after another. All characters are generated at once, and revision only happens if it's explicitly listed.
+Organizes the novel-writing process by individual step so each step's base definition and all of its batch iterations live together:
 
-Steps should provide a clear basis of truth. We want to isolate creative decisions early in the process, so that the prose can simply glide through the story already described. 
+- **`00_step_catalog.md`:** Master list of steps in the mystery-writing process, defining how each step reduces to its smallest testable unit and how to write neutral base instructions.
+- **`<NN_step_name>/base_instructions.md`:** Minimal, framework-neutral instructions for that step's isolated unit (for example, *one* character in `02_character_bible/` or *one* clue chain in `04_clues_syuzhet/`), including conciseness limits and base deliverable fields.
+- **`<NN_step_name>/context.md`:** Optional frozen input context for downstream steps that depend on upstream story assumptions (such as a fixed sample scene beat sheet when prototyping prose directions in `08_scene_draft/`). Keeping `context.md` fixed ensures every prototype in an iteration starts from identical inputs.
+- **`<NN_step_name>/iterations/<NN>/`:** A single batch run of 10 prototypes for that step:
+  - **`directions.md`:** Records any input midpoints from the prior iteration, all 50 brainstormed artistic directions sorted by viability, and the top 10 chosen for prototyping.
+  - **`instructions/01.md`–`10.md`:** Minimal instruction files generated concurrently for each of the 10 chosen directions.
+  - **`outputs/01.md`–`10.md`:** Concise single-unit outputs produced by running each corresponding instruction file once. Kept in a flat numbered folder so a human reviewer can step rapidly from `01.md` through `10.md`.
+  - **`evaluation.md`:** Consolidated human scorecard instantiated from `1_harness/05_evaluation_template.md`. Contains a compact scorecard per direction tried (`01`–`10`), side-by-side comparison scores, brief notes, and the 1–2 winning directions chosen as midpoints for the next iteration.
 
-Chapters are generated one by one in isolation, so it's important to share a context. This anchors all the chapters together, preventing drift between them.
+### 3_history/
 
-### Purpose and organization
-
-Some steps introduce new content. For example, a step might generate a list of characters. Another step might generate a timeline of all events in the story, and what each character was doing at that time. All steps have an index, but there is also a "new content step" index. These steps should add files to `4_data/` under a file that uses the new content step index.
-
-For example, if step 1 is a new content step and step 2 is a review step and step 3 is a new content step, then step 3 has a new content step index of 2. Content generated from this step is put in `4_data/02_{step_name}.md`. If step 3 produces more than one file of output, it instead creates a folder in the format `4_data/02_{step_name}.md`.
-
-Review steps are ones that look at (and change) the existing files in `4_data/` rather than making new files. Review steps should aim to make minimal changes, only where necessary. They can have the following goals:
-- to align files to one source of truth
-- to identify pieces that don't serve the overall project goals, and refactor them
-- to identify issues early, and course correct
-
-### Mandatory elements
-
-Each step should be run by a fresh agent context. Each step runs the instructions for the step, against its template, to generate a result. It must create a plan, which is not stored permanently. Plans are automatically approved.
-
-After this, every step must perform, without exception:
-- quality checks (in `2_steps/quality_check.md`)
-- change log instructions (in `1_plan/03_change_log.md`)
-
-The last step for every iteration is strictly required to run the evaluation steps `1_plan/04_evaluation.md`.
-
-### Possible step ideas
-
-New content steps:
-- Character bible - Detailed descriptions of each character's relationships, goals, tendencies, etc. Informs the interactions between characters.
-- Scene lists - List of all events that take place in the book, with detailed descriptions of the story beats within each scene. This are used as context files to write chapters.
-
-Review steps:
-- Are the entries in `4_data/` myopically obsessed with details that don't enhance the reader's experience?
-- What are the most interesting and engaging ideas so far? Can we shift the focus of the story towards those?
-- Can we simplify and choose clearer terms for character descriptions?
-
-### 3_change_log/
-
-This folder stores entries generated from `1_plan/03_change_log.md`. Each entry has a sequential number in its prefix. For example, `3_change_log/005_step_5.md` labels the 5th entry, written by the agent right after it finishes step 5.
-
-### 4_data/
-
-This folder stores the results of running the instructions from `1_plan/` and `2_steps/` via agentic AI.
-
-Every step should check the instructions, then check the output in `4_data/`. Then it will likely generate a new file in this folder OR modify existing files. When one step creates multiple files, it should create a folder within `4_data/`, labelled with the step name. For example, if step 12 generates 5 chapter files, they would be stored in `4_data/12_chapters/03.md`.
-
-The harness passes two folders as seed values to begin an iteration:
-- `01_goals.md` (malleable by the harness, immutable within a prototype)
-- `02_style.md` (malleable to all)
-
-`01_goals.md` is the source of truth for storytelling decisions. It should guide every other step because nothing added to `4_data/` is allowed to contradict `01_goals.md`.
-
-`02_style.md` is a list of writing rules that strictly must be adhered to by chapter drafting. Output from other steps should use these style rules when possible, too, though they do not have a strict requirement.
-
-### 5_evaluation/
-
-This folder has four files generated in a sequence of steps.
-- `01_manuscript.txt`
-- `02_review.md`
-- `03_learnings.md`
-- `04_suggestions.md`
-
-`01_manuscript.txt` is the prototype made by the iteration. It is the final step of creative work. It is stored here because it should be passed from the iteration to the harness. `01_manuscript.txt` should be a plain text version of the story, intended for a reader. It should have no internal fields. This is the output.
-
-`02_review.md` is generated second. The goal is to judge whether the prototype has succeeded.
-
-It is done by evaluating `5_evaluation/1_manuscript.txt` against the design goals set at the start (`1_plan/01_project.md` and `1_plan/02_rubric.md`). This evaluation should give an unbiased general score out of 100, for the overall quality. It should also rank each part of the project to determine which parts were good and bad (judged according to the rubric). List the main issues and the main successes in `02_review.md`.
-
-`03_learnings.md` is generated third. It reviews all entries in `03_change_log/` to aggregate its data. The goal is to understand where each specific problem began.
-
-First, it should check change log entries to group problems. Some are one-offs, while other issues may come up repeatedly. Problems that arise multiple times are more likely to be structural. However, `03_learnings.md` must report one-off issues because they might be structural too. Consider the case where an issue comes up exactly once for every iteration; this would be structural to the harness. Thus, one-off issues must be reported too. For repeat issues, try to determine the similarities and shared truth. This helps understand the underlying cause of the problem.
-
-Lastly for learnings, check `5_evaluation/02_review.md` for the problems that it brings up. Scan all change log entries to find the first instance where a decision creates that issue. `03_learnings.md` aims to pair every problem to the decision where it originated.
-
-`04_suggestions.md` is a list of changes proposed from within an iteration to the overall harness. While `5_evaluation/02_review.md` and `5_evaluation/03_learnings.md` focus on issues and clarifying what the problems are, this file suggests solutions. Praise for a topic should be a weight against change. Criticism and problems are a weight towards change. Propose several different possible solutions.
+Stores historical notes (`early_learnings.md`) from earlier novel-generation experiments that predate the batch step-prototyping harness, retained as craft and failure-mode reference material.
