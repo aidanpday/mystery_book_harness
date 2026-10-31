@@ -16,26 +16,6 @@ The story advances through investigation and deduction.
 - **Tactile over technical:** Focus observations on tactile and sensory qualities (temperature, heft, texture, posture) rather than exact measurements, weights, distances, or numerical calculations.
 - **Stakes integrity:** Stakes and consequences established early must follow through for characters unable to avoid them, focusing on personal/social consequences rather than bureaucratic or legal technicalities.
 
-## Baseline Outline
-
-### Fabula
-
-C-01 is a fraudster smuggling a counterfeit MacGuffin. C-01 is pursued by C-03, who intends to steal the MacGuffin to expose C-01 to an authoritative panel at the destination. Police can be contacted remotely during the journey but cannot intervene until arrival at the destination.
-
-There are two known disruptions during the journey, where the entire location briefly goes dark. During the first disruption, C-03 steals the MacGuffin. C-01 plays both victim and investigator, charming C-02 into helping uncover the thief. Because the MacGuffin is missing, nobody can inspect or question its legitimacy.
-
-C-01 and C-02 investigate until the second disruption, when most characters scramble to hide their personal secrets. C-01 finishes the investigation and recovers the MacGuffin. C-03 exposes that the MacGuffin is fake, and everyone (including C-02) begins to question C-01.
-
-C-01 assures everyone that the police are waiting at the destination anyway, and arrival is imminent. As they arrive, however, C-01 slips away early with the MacGuffin. C-03 is punished by police. C-02 is lauded for their investigative work uncovering the theft.
-
-### Syuzhet
-
-The story is told from C-02's perspective. C-02 is not initially connected to either C-01 or C-03. C-02 is the social inferior of C-01 and C-03, and is pleasantly surprised that C-01 treats them with respect and curiosity. C-02 helps the investigation earnestly.
-
-C-02 has mixed feelings about C-01 upon learning about the fraud, feeling dissatisfied because their investigation succeeded yet resulted in the true culprit escaping and justice being mis-served.
-
-> Note: Internal labels (`C-01`, `C-02`, `C-03`, `MacGuffin`) are structural placeholders for planning steps and must never appear as literal names in drafted prose (`08_scene_draft`).
-
 ## Inspiration
 
   - NAME: The Usual Suspects (1995)

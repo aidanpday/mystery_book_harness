@@ -10,8 +10,8 @@ Legal gotchas and statutes are also strictly banned. The law exists and actions 
 
 Consider a tonal scale where gritty realism is on one side and stylish, campy vibrancy is at the other extreme. *True Detective* is an example of 100% gritty realism. *Sherlock Holmes* novels sit at 50%. *The Grand Budapest Hotel* sits at 0%. The target for this project is **40%**: slightly more stylish than *Sherlock Holmes*, and substantially more grounded than *The Grand Budapest Hotel*.
   - Guardrail against farce: Characters are articulate. No slapstick. Avoid steampunk.
-  - Guardrail against morose melodrama: Stakes are urgent and ruinous, but characters do not devolve into bleak, extreme expressions of pain and stress.
-  - Guardrail against irrelevant specificity: If its only purpose is to hammer a nail, a 3.5mm Bern hammer with a rubber handle is ultimately just a hammer.
+  - Guardrail against morose melodrama: Stakes are urgent but characters do not devolve into extreme expressions.
+  - Guardrail against irrelevant specificity: If its only purpose is to hammer a nail, a 3.5mm Swiss hammer with a rubber handle is ultimately just a hammer.
 
 ## Strict Prose Rules (For prose-drafting prototypes)
 

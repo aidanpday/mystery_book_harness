@@ -13,7 +13,7 @@ Each step of the mystery-writing process is prototyped **in isolation** on its *
 | `05_timeline/` | Fabula | Chronological state slice across **1 key event window** (e.g., First Disruption) | ~200–300 words |
 | `06_scene_list/` | Syuzhet | Sequence of **2–3 connected scenes** testing reader-facing ordering and reveals | ~250–350 words |
 | `07_narrative_beats/` | Syuzhet | Granular beat-by-beat breakdown for **1 single scene** | ~250–350 words |
-| `08_scene_draft/` | Syuzhet | Drafted narrative prose for **1 short scene or beat slice** | ~350–500 words |
+| `08_scene_draft/` | Syuzhet | Drafted narrative prose for **1 short scene** | ~350–500 words |
 
 ## Principles for Base & Generated Instructions
 
