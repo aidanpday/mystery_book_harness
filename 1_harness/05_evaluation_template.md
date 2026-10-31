@@ -1,7 +1,7 @@
-# Iteration Evaluation: <Step Name> — Iteration <NN>
+# Iteration Evaluation: <Step Name> — Iteration <XX>
 
 - **Step:** `<NN_step_name>`
-- **Input Midpoint(s):** <None (Iteration 01 — wide BFS) | Chosen Direction ID(s) & summary from Iteration NN-1>
+- **Input Midpoint(s):** <None (initial wide BFS for this step) | Chosen Direction ID(s) & summary from iteration_YY>
 
 ## Scoring Guide (1–5)
 
@@ -14,7 +14,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
 ## Per-Direction Scorecards
 
 ### Direction 01: <Title>
-- **Files:** [instructions/01.md](instructions/01.md) | [outputs/01.md](outputs/01.md)
+- **Files:** [01/instructions.md](01/instructions.md) | [01/output.md](01/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -22,7 +22,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 02: <Title>
-- **Files:** [instructions/02.md](instructions/02.md) | [outputs/02.md](outputs/02.md)
+- **Files:** [02/instructions.md](02/instructions.md) | [02/output.md](02/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -30,7 +30,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 03: <Title>
-- **Files:** [instructions/03.md](instructions/03.md) | [outputs/03.md](outputs/03.md)
+- **Files:** [03/instructions.md](03/instructions.md) | [03/output.md](03/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -38,7 +38,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 04: <Title>
-- **Files:** [instructions/04.md](instructions/04.md) | [outputs/04.md](outputs/04.md)
+- **Files:** [04/instructions.md](04/instructions.md) | [04/output.md](04/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -46,7 +46,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 05: <Title>
-- **Files:** [instructions/05.md](instructions/05.md) | [outputs/05.md](outputs/05.md)
+- **Files:** [05/instructions.md](05/instructions.md) | [05/output.md](05/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -54,7 +54,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 06: <Title>
-- **Files:** [instructions/06.md](instructions/06.md) | [outputs/06.md](outputs/06.md)
+- **Files:** [06/instructions.md](06/instructions.md) | [06/output.md](06/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -62,7 +62,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 07: <Title>
-- **Files:** [instructions/07.md](instructions/07.md) | [outputs/07.md](outputs/07.md)
+- **Files:** [07/instructions.md](07/instructions.md) | [07/output.md](07/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -70,7 +70,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 08: <Title>
-- **Files:** [instructions/08.md](instructions/08.md) | [outputs/08.md](outputs/08.md)
+- **Files:** [08/instructions.md](08/instructions.md) | [08/output.md](08/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -78,7 +78,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 09: <Title>
-- **Files:** [instructions/09.md](instructions/09.md) | [outputs/09.md](outputs/09.md)
+- **Files:** [09/instructions.md](09/instructions.md) | [09/output.md](09/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
@@ -86,7 +86,7 @@ Evaluate the **artistic direction and minimal instructions**, using the output s
   - *Bad:* 
 
 ### Direction 10: <Title>
-- **Files:** [instructions/10.md](instructions/10.md) | [outputs/10.md](outputs/10.md)
+- **Files:** [10/instructions.md](10/instructions.md) | [10/output.md](10/output.md)
 - **Direction Summary:** <pre-filled 1–2 sentence description>
 - **Scores:** Promise: `/5` | Leverage: `/5` | Fit: `/5` | **Total:** `/15`
 - **Notes:**
