@@ -12,8 +12,8 @@ The story advances through investigation and deduction.
 ## Fair-Play Mystery Constraints
 
 - **Domain expertise:** Character actions tend toward areas they are competent in. Characters do not display sudden, brilliant expertise in unfamiliar topics.
-- **Sensory & conversational solvability:** Clues must be observable by normal human senses (sight, touch, smell, sound) or deducible from conversation and alibi contradictions, with their true meaning obscured.
-- **Tactile over technical:** Focus observations on tactile and sensory qualities (temperature, heft, texture, posture) rather than exact measurements, weights, distances, or numerical calculations.
+- **Sensory & conversational solvability:** Clues must be observable by normal human senses (focus on sight and sound) or deducible from conversation and alibi contradictions, with their true meaning obscured.
+- **Neither technical nor tactile:** Avoid exact measurements, weights, distances, or numerical calculations. Use sensory qualities but avoid forcing subjective thoughts or mood onto physical, tactile details. Keep the physical reality simple, and let the interpretation come from the characters.
 - **Stakes integrity:** Stakes and consequences established early must follow through for characters unable to avoid them, focusing on personal/social consequences rather than bureaucratic or legal technicalities.
 
 ## Inspiration

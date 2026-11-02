@@ -19,7 +19,7 @@ This document defines the exact agentic procedure for running one batch **iterat
 1. **Brainstorm 50 distinct artistic directions** for executing this step's single unit. You are encouraged to pick directions based on successful authors and stories that already exist:
    - **First iteration on this step (no prior midpoint):** Survey the broadest viable field via breadth-first search. Draw on diverse fiction-writing frameworks, structural theories, and artistic inspirations so the 50 candidates span genuinely distinct creative angles.
    - **Follow-up iteration on this step (1–2 midpoints provided):** Anchor around the chosen midpoint(s). None of the 50 candidates may copy a midpoint verbatim; each must propose a specific variation, shift in emphasis, structural modification, or synthesis in the neighborhood of the midpoint(s).
-   - Every candidate must remain compatible with the universal constraints in `1_harness/` (e.g., bottle mystery scope, fair-play solvability, zero money or legal statutes) and testable within the step's single-unit conciseness cap.
+   - Every candidate must remain testable within the step's single-unit conciseness cap.
 2. **Sort all 50 directions by viability** from strongest to weakest based on:
    - **Craft rigor:** Is the direction grounded in a defensible storytelling principle rather than a gimmick?
    - **Distinctiveness:** Does the top 10 cover meaningfully different hypotheses rather than minor rewordings of the same idea?

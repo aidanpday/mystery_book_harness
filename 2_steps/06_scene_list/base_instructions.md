@@ -1,10 +1,10 @@
 # Step 06: Scene List (Base Instructions)
 
 ## Goal
-Translate chronological story events into a reader-facing sequence of scenes (syuzhet) that controls pacing, state transitions, and chapter-ending hooks.
+Translate chronological list of events into a reader-facing sequence of scenes (syuzhet) that controls pacing, chapter-ending hooks, intrigue, and flow.
 
 ## Isolated Unit Scope
-- **A sequence of 2–3 consecutive scenes** spanning the discovery of the missing MacGuffin and the launch of `C-01` and `C-02`'s joint investigation.
+- **A sequence of 2–3 consecutive scenes** spanning the characters entering the location until the crime is discovered. This includes when the crime is committed, but the details of it should remain outside the scope of the scenes.
 - **Length cap:** 250–350 words total.
 
 ## Fixed Inputs
@@ -15,7 +15,7 @@ Translate chronological story events into a reader-facing sequence of scenes (sy
 
 ## Base Deliverable Shape
 For each of the 2–3 scenes:
-1. **Scene Header & World State:** Location zone, characters present, and any changed object/knowledge state entering the scene.
-2. **Dramatic Purpose & Reader Reveal:** What changes interpersonally and what clue, contradiction, or question is surfaced to `C-02` (and the reader).
-3. **Exit Hook:** The unresolved friction or newly surfaced contradiction propelling into the next scene.
+1. **Scene Events:** Location zone, characters present, and any clues or knowledge that the reader learns during this scene. This affects the fabula mainly but also the syuzhet.
+2. **Dramatic Purpose:** How this scene affects the reader's experience of themes, how it affects the characters along their arcs, and what the narrative tension is.
+3. **Exit Hook:** Something to propel the reader's interest to the next scene.
 
