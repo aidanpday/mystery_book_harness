@@ -5,7 +5,7 @@ These baseline story constraints anchor isolated step experiments so all prototy
 Steps in the novel-writing process divide responsibility between **fabula** (in-universe truth for what actually happened) and **syuzhet** (the reader's experience of discovering clues and solving the crime). Both the fabula and the syuzhet must be compelling individually.
 
 - **Fabula-focused steps** (`01_setting`, `02_character_bible`, `03_crime_fabula`, `05_timeline`) establish a possible, legible physical and social reality.
-- **Syuzhet-focused steps** (`04_clues_syuzhet`, `06_scene_list`, `07_narrative_beats`, `08_scene_draft`) control presentation to the reader. Ensure that the reader receives observable physical clues, timeline anomalies, and behavioral tells fairly, while obscuring their implications through misdirection until the resolution.
+- **Syuzhet-focused steps** (`04_clues_syuzhet`, `06_scene_list`, `07_narrative_beats`, `08_prose`) control presentation to the reader. Ensure that the reader receives observable physical clues, timeline anomalies, and behavioral tells fairly, while obscuring their implications through misdirection until the resolution.
 
 The story advances through investigation and deduction.
 

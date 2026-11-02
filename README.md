@@ -107,3 +107,43 @@ Stores all batch iteration runs (`iteration_01/`, `iteration_02/`, etc.) alongsi
     - **`output.md`:** The concise single-unit output produced by running `instructions.md` once.
   - **`eval.md`:** Human evaluation scorecard copied from `1_harness/05_evaluation_template.md`. Records the target step, input midpoints, per-direction summaries and links (`01/instructions.md` and `01/output.md` through `10/instructions.md` and `10/output.md`), human scores and notes, and the 1–2 best directions chosen to pursue next.
 - **`early_learnings.md`:** Historical notes from earlier novel-generation experiments that predate the batch step-prototyping harness, retained as craft and failure-mode reference material.
+
+## Instructions per step
+
+One model brainstorms 50 options as its only task. Generate a list of 50 possibile approaches in a file. I will rank them and choose 10 to proceed with.
+
+I then choose the 10 approaches to pursue, giving another model the task to create instructions for these approaches.
+
+Lastly, 10 subagents using the same model generate the prototypes for each of these 10.
+
+### Step 1: Setting
+
+One process should generate 50 unique settings (i.e. if one setting takes place on a train, none of the others can take place on a train). Each approach should include at least one author or book style to emulate.
+
+### Step 2: Character
+
+Once the approaches are selected, the instructions for each approach should all make a character with the same role in the story. This ensures that the comparison is apples-to-apples. Each iteration should select a different role for the instructions to target (i.e. criminal, investigator, suspect, bystander).
+
+### Step 3: Fabula
+
+TODO
+
+### Step 4: Syuzhet
+
+TODO
+
+### Step 5: Timeline
+
+TODO
+
+### Step 6: Scene list
+
+TODO
+
+### Step 7: Story beats
+
+TODO
+
+### Step 8: Prose
+
+TODO
