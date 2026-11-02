@@ -38,9 +38,9 @@ Fair, apples-to-apples comparisons require holding everything constant except th
   - **The AI model** — every prototype in an experiment uses the exact same model.
   - **The step baseline** — the target step's `base_instructions.md` (defining the unit scope and base deliverable shape) and any fixed upstream `context.md` fixture.
 - **Variable within an iteration (Independent Variable):**
-  - The 10 chosen artistic directions and their modified instruction sets (`3_history/iteration_XX/01/instructions.md` through `10/instructions.md`, derived from the step's `base_instructions.md` by prioritizing each unique direction).
+  - The 10 chosen artistic directions and their modified instruction sets (`3_runs/iteration_XX/01/instructions.md` through `10/instructions.md`, derived from the step's `base_instructions.md` by prioritizing each unique direction).
 - **Immutable once recorded (Experimental Record):**
-  - Once an iteration folder (`3_history/iteration_01/`, `3_history/iteration_02/`, etc.) completes and a human records scores in `eval.md`, that iteration directory is frozen. A follow-up iteration on that step reads the 1–2 chosen directions ("midpoints") from the completed `eval.md` and writes to a fresh `3_history/iteration_XX/` folder.
+  - Once an iteration folder (`3_runs/iteration_01/`, `3_runs/iteration_02/`, etc.) completes and a human records scores in `eval.md`, that iteration directory is frozen. A follow-up iteration on that step reads the 1–2 chosen directions ("midpoints") from the completed `eval.md` and writes to a fresh `3_runs/iteration_XX/` folder.
 
 ### Choosing Artistic Directions & Minimal Instructions
 
@@ -53,7 +53,7 @@ How directions are generated depends on whether a prior iteration on that step h
 - **If no "overall direction" (midpoint) is given (first iteration on a step):** Survey the widest possible space of viable artistic choices. The 50 candidates—and the top 10 selected—should test fundamentally different craft philosophies, focal priorities, and structural approaches so the initial batch maps the broader landscape.
 - **If an "overall direction" (1–2 midpoints) is given (follow-up iteration on a step):** Each new direction must include specific modifications that test possibilities around the midpoint(s) without copying them verbatim. Treat the 1–2 midpoints as a center of gravity—vary emphasis, framing, tension mechanics, or level of abstraction to triangulate on the strongest formulation in that neighborhood.
 
-For each of the 10 selected directions, an isolated agent creates a subfolder (`01/` through `10/`) under `3_history/iteration_XX/`, writes `instructions.md` as a modified version of the step's `base_instructions.md` prioritizing that unique direction, and executes those instructions once to produce `output.md`. Instructions should stay lean and high-leverage rather than piling on tangential rules.
+For each of the 10 selected directions, an isolated agent creates a subfolder (`01/` through `10/`) under `3_runs/iteration_XX/`, writes `instructions.md` as a modified version of the step's `base_instructions.md` prioritizing that unique direction, and executes those instructions once to produce `output.md`. Instructions should stay lean and high-leverage rather than piling on tangential rules.
 
 ## REPOSITORY STRUCTURE
 
@@ -70,7 +70,7 @@ For each of the 10 selected directions, an isolated agent creates a subfolder (`
 │   └── <NN_step_name>/
 │       ├── base_instructions.md
 │       └── context.md          # Optional frozen upstream fixture for downstream steps
-└── 3_history/                  # Iteration runs & historical learnings
+└── 3_runs/                  # Iteration runs & historical learnings
     ├── early_learnings.md
     └── iteration_XX/           # One iteration batch (e.g., iteration_01/)
         ├── 01/ ... 10/         # 10 subfolders, one per direction tried
@@ -86,8 +86,8 @@ Holds the fixed project baseline and universal execution rules shared across exp
 - **`01_project.md`:** High-level project parameters—genre (whodunnit mystery), target audience profiles, bounded "bottle" setting scope, and AI experimentation rules (fixed model, single-unit conciseness, single-step execution).
 - **`02_goals.md`:** Baseline story truth (fabula vs. syuzhet principles, mystery fair-play constraints, and positive/negative artistic inspirations).
 - **`03_style.md`:** Tonal calibration scale, universal content bans (no money, no legal statutes), and prose rules for drafting steps.
-- **`04_workflow.md`:** Operational guide for running an iteration on a step: generating 50 directions, sorting and picking 10, running 10 concurrent prototypes into `3_history/iteration_XX/01/`–`10/`, and preparing `3_history/iteration_XX/eval.md`.
-- **`05_evaluation_template.md`:** Consolidated human review template copied into each iteration as `3_history/iteration_XX/eval.md`.
+- **`04_workflow.md`:** Operational guide for running an iteration on a step: generating 50 directions, sorting and picking 10, running 10 concurrent prototypes into `3_runs/iteration_XX/01/`–`10/`, and preparing `3_runs/iteration_XX/eval.md`.
+- **`05_evaluation_template.md`:** Consolidated human review template copied into each iteration as `3_runs/iteration_XX/eval.md`.
 
 ### 2_steps/
 
@@ -97,7 +97,7 @@ Organizes the novel-writing process by individual step, holding each step's neut
 - **`<NN_step_name>/base_instructions.md`:** Minimal, framework-neutral instructions for that step's isolated unit (for example, *one* character in `02_character_bible/` or *one* clue chain in `04_clues_syuzhet/`), including conciseness limits and base deliverable fields.
 - **`<NN_step_name>/context.md`:** Optional frozen input context for downstream steps that depend on upstream story assumptions (such as a fixed sample scene beat sheet when prototyping prose directions in `08_scene_draft/`). Keeping `context.md` fixed ensures every prototype in an iteration starts from identical inputs.
 
-### 3_history/
+### 3_runs/
 
 Stores all batch iteration runs (`iteration_01/`, `iteration_02/`, etc.) alongside historical learnings from earlier experiments:
 
@@ -110,7 +110,7 @@ Stores all batch iteration runs (`iteration_01/`, `iteration_02/`, etc.) alongsi
 
 ## Instructions per step
 
-One model brainstorms 50 options as its only task. Generate a list of 50 possibile approaches in a file. I will rank them and choose 10 to proceed with.
+One model brainstorms 50 options as its only task. Generate a list of 50 possibile approaches in a file. I will rank them and choose 10 to proceed with. Do not intentionally generate better or worse ideas. All of them should be viable and there is no need to preemptively rank them.
 
 I then choose the 10 approaches to pursue, giving another model the task to create instructions for these approaches.
 
