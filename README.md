@@ -73,6 +73,7 @@ For each of the 10 selected directions, an isolated agent creates a subfolder (`
 └── 3_runs/                  # Iteration runs & historical learnings
     ├── early_learnings.md
     └── iteration_XX/           # One iteration batch (e.g., iteration_01/)
+        ├── brainstorm.md       # 50 concise options + human selection of 10
         ├── 01/ ... 10/         # 10 subfolders, one per direction tried
         │   ├── instructions.md # Modified base_instructions.md prioritizing this direction
         │   └── output.md       # Single-pass prototype output
@@ -102,6 +103,7 @@ Organizes the novel-writing process by individual step, holding each step's neut
 Stores all batch iteration runs (`iteration_01/`, `iteration_02/`, etc.) alongside historical learnings from earlier experiments:
 
 - **`iteration_XX/`:** A single batch run of 10 prototypes for one target step:
+  - **`brainstorm.md`:** 50 short, scannable options (`01`–`50`) generated for rapid top-down human review, plus the `Human Selection` list recording the 10 options chosen to prototype.
   - **`01/`–`10/`:** 10 subfolders, one per artistic direction tried. Each subfolder contains two files:
     - **`instructions.md`:** A modified version of the target step's `base_instructions.md` that prioritizes this subfolder's unique artistic direction.
     - **`output.md`:** The concise single-unit output produced by running `instructions.md` once.
@@ -110,7 +112,16 @@ Stores all batch iteration runs (`iteration_01/`, `iteration_02/`, etc.) alongsi
 
 ## Instructions per step
 
-One model brainstorms 50 options as its only task. Generate a list of 50 possibile approaches in a file. I will rank them and choose 10 to proceed with. Do not intentionally generate better or worse ideas. All of them should be viable and there is no need to preemptively rank them.
+One model brainstorms 50 options as its only task in `3_runs/iteration_XX/brainstorm.md`. Generate a list of 50 possible approaches in a file. I will rank them and choose 10 to proceed with. Do not intentionally generate better or worse ideas. All of them should be viable and there is no need to preemptively rank them.
+
+Format `brainstorm.md` for a quick top-down pass to tell whether each idea has promise:
+- **Top-level summary:** Keep the top-level summary at the top (step, midpoint, scope, and constraints).
+- **Human selection:** Keep the `## Human Selection (Pick 10 to Pursue)` section (`1.`–`10.`).
+- **`## 50 options` with number-only subtitles:** Name the overall section `## 50 options`. Each option subtitle must be just the two-digit number (e.g., `### 03`) without any title, text, or explanation.
+- **30–60 words per option, summary first, no explicit section titles:** Each idea must be **30–60 words total**, without bold labels/titles on any lines or bullets:
+  1. **Overall approach summary (first):** Spend most of the 30–60 word count summarizing the overall approach right under the number heading.
+  2. **Style bullet:** One concise bullet stating which author or work this emulates and which basic traits are relevant.
+  3. **Main decision bullets (2–10 words each):** One succinct bullet per main decision (for example, in `iteration_02`, the content of the play and the reason the play continues), strictly **2–10 words** each for just the basic idea.
 
 I then choose the 10 approaches to pursue, giving another model the task to create instructions for these approaches.
 
