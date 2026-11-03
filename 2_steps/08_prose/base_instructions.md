@@ -9,6 +9,11 @@ Do not edit or create or add original ideas, but find ways to express the flow g
 - **1 concise drafted scene slice** executing the fixed beat sheet in `context.md`.
 - **Length cap:** 350–500 words of final reader-facing prose.
 
+## Grounded Calibration (5/10 Target)
+- Produce grounded, clear prose without imposing heavy melodrama or ornamental complexity onto ordinary actions and spaces.
+- Use simple, plain language to describe functional spaces and natural character interactions that are easy to imagine.
+- On a 1–10 scale for **melodrama**, **complexity**, and **non-functional detail** (where outputs often drift to 7/10 melodramatic, 7/10 complicated, and 6/10 non-functional), aim squarely for **5/10 in all three categories**.
+
 ## Fixed Inputs
 - `1_harness/01_project.md`
 - `1_harness/02_goals.md`

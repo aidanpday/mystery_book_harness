@@ -7,7 +7,13 @@ State events in order in a matter-of-fact, simple outline.
 
 ## Isolated Unit Scope
 - **1 core crime sequence in reality:** Define the crime as it occurs in the reality of the story, directly. It should be a physical, social, and plausible explanation that describes the criminal and everyone around them. This should produce some clues as byproducts.
-- **Length cap:** 250–350 words total.
+- **Word-count allocation:** Spend **100–150 words** on the overall crime concept and summary (what happens, why, and how it fits into normal events), and **up to 60–80 words** on each of the 3 detail subsections below.
+- **Length cap:** 250–350 words total (bulk of the word count for the big-picture view, smaller portion for the details).
+
+## Grounded Calibration (5/10 Target)
+- Produce a grounded, practical crime sequence without imposing heavy melodrama, convoluted Rube Goldberg contraptions, or over-complicated technical schemes.
+- Use simple, plain language to describe functional actions and everyday cause-and-effect that are easy to imagine.
+- On a 1–10 scale for **melodrama**, **complexity**, and **non-functional detail** (where outputs often drift to 7/10 melodramatic, 7/10 complicated, and 6/10 non-functional), aim squarely for **5/10 in all three categories**.
 
 ## Fixed Inputs
 - `1_harness/01_project.md`
@@ -15,8 +21,9 @@ State events in order in a matter-of-fact, simple outline.
 - `1_harness/03_style.md` (Target tone, tactile focus, zero money, zero exact weight/distance calculations)
 
 ## Base Deliverable Shape
-1. **The MacGuffin:** What the object is and what traits are important or notable about it.
-2. **Pre-Crime:** Where the MacGuffin is, who has access, and its vulnerability.
-3. **Crime:** Step-by-step physical cause and effect that describes what happens to it.
-4. **Immediate Fallout:** Clues left behind and any major occurances until the crime is discovered.
+1. **Crime Concept & Summary (100–150 words):** Big-picture overview of the crime in reality, the core object or target (MacGuffin), and how the culprit exploits normal social/physical routines.
+2. **Sequence Details (up to 60–80 words per subsection):**
+   - **Pre-Crime Setup:** Where the target/MacGuffin is, who has normal access, and its practical vulnerability.
+   - **Crime Execution:** Step-by-step physical and social cause and effect.
+   - **Immediate Fallout:** Observable clues left behind as natural byproducts and key occurrences until discovery.
 

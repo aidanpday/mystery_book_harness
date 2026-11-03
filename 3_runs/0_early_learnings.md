@@ -59,3 +59,7 @@ Issues that arose in over half of reviews of prior drafts:
 ## Avoid repeat explanations
 
 One draft had the investigators explain the crime in their deductions, then the culprit gave a monologue after being caught where they once again explained the crime. This should happen exactly once, and culprit monologues should be avoided too.
+
+## Drama should rise and fall
+
+AI generated prose tends to be overly dramatic and self-serious. Only tense moments should feel tense, and the atmosphere must include variation. Not every event needs emphasis, or else we would lose emphasis on the things that matter. Stories should aim for an overall 6/10 in terms of serious drama, with rare scenes getting to 9/10 but most scenes hovering between 4 and 7.
